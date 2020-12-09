@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using CheckWinner;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Tic_Tac_Toe
 {
@@ -46,9 +47,11 @@ namespace Tic_Tac_Toe
                 }
             }
         }
-        
-        private int turnCount;
-        private bool isWinner;
+
+        private int wins;
+        private int draws;
+        private int loses;
+        private string isWinner;
         private BackgroundWorker messageReceiver = new BackgroundWorker();
         private TcpListener server;
         private TcpClient client;
@@ -62,7 +65,7 @@ namespace Tic_Tac_Toe
             label2.Text = @"Opponent's Turn!";
             ReceiveMove();
             label2.Text = @"Your Turn!";
-            if (!isWinner)
+            if (isWinner == "")
                 EnableButtons();
         }
 
@@ -115,10 +118,25 @@ namespace Tic_Tac_Toe
 
         private void Winner()
         {
-            isWinner = new Class1().Winner(this); 
-            if (isWinner)
+            isWinner = new Class1().Winner(this);
+            if (isWinner != "")
             {
-                MessageBox.Show($@"{PlayerChar} won");
+                if (isWinner == PlayerChar)
+                {
+                    MessageBox.Show($@"{isWinner} won");
+                    wins++;
+                }
+                else if (isWinner == "draw")
+                {
+                    MessageBox.Show(@"Draw!");
+                    draws++;
+                }
+                else if (isWinner == OpponentChar)
+                {
+                    MessageBox.Show($@"{isWinner} won");
+                    loses++;
+                }
+
                 foreach (var btn in Controls.OfType<Button>().Cast<Control>().ToList())
                 {
                     var b = (Button) btn;
@@ -159,6 +177,22 @@ namespace Tic_Tac_Toe
             var name = new String(chars);
             Controls[name].Text = OpponentChar;
             Winner();
+        }
+
+        private void exportStatisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            object misValue = System.Reflection.Missing.Value;
+            Excel.Application xlApp = new Excel.ApplicationClass();
+            var xlWorkBook = xlApp.Workbooks.Add(misValue);
+            var xlWorkSheet = (Excel.Worksheet) xlWorkBook.Worksheets.Item[1];
+            xlWorkSheet.Cells[2, 1] = "Wins";
+            xlWorkSheet.Cells[3, 1] = "Draws";
+            xlWorkSheet.Cells[4, 1] = "Loses";
+            xlWorkSheet.Cells[1, 2] = $@"{PlayerChar}";
+            xlWorkSheet.Cells[2, 2] = $@"{wins}";
+            xlWorkSheet.Cells[3, 2] = $@"{draws}";
+            xlWorkSheet.Cells[4, 2] = $@"{loses}";
+            xlApp.Visible = true;
         }
     }
 }
