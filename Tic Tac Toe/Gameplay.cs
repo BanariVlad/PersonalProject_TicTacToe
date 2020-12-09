@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Net.Sockets;
+using CheckWinner;
 
 namespace Tic_Tac_Toe
 {
@@ -20,6 +21,8 @@ namespace Tic_Tac_Toe
             {
                 PlayerChar = "X";
                 OpponentChar = "0";
+                label1.Text = $@"Your character is {PlayerChar}";
+                label2.Text = @"Your Turn!";
                 server = new TcpListener(System.Net.IPAddress.Any, 3000);
                 server.Start();
                 sock = server.AcceptSocket();
@@ -28,6 +31,8 @@ namespace Tic_Tac_Toe
             {
                 PlayerChar = "0";
                 OpponentChar = "X";
+                label1.Text = $@"Your character is {PlayerChar}";
+                label2.Text = @"Opponent's Turn!";
                 try
                 {
                     client = new TcpClient(ip ?? string.Empty, 3000);
@@ -54,14 +59,16 @@ namespace Tic_Tac_Toe
         private void MessageReceiver_DoWork(object sender, DoWorkEventArgs e)
         {
             DisableButtons();
+            label2.Text = @"Opponent's Turn!";
             ReceiveMove();
+            label2.Text = @"Your Turn!";
             if (!isWinner)
                 EnableButtons();
         }
 
         private void GenerateButtons()
         {
-            var y = 30;
+            var y = 66;
             for (int i = 0; i < 3; i++)
             {
                 var x = 15;
@@ -108,34 +115,10 @@ namespace Tic_Tac_Toe
 
         private void Winner()
         {
-            if (Controls["0_0"].Text == Controls["0_1"].Text &&
-                Controls["0_1"].Text == Controls["0_2"].Text && Controls["0_0"].Text != "")
-                isWinner = true;
-            else if (Controls["1_0"].Text == Controls["1_1"].Text &&
-                     Controls["1_1"].Text == Controls["1_2"].Text && Controls["1_0"].Text != "")
-                isWinner = true;
-            else if (Controls["2_0"].Text == Controls["2_1"].Text &&
-                     Controls["2_1"].Text == Controls["2_2"].Text && Controls["2_0"].Text != "")
-                isWinner = true;
-            else if (Controls["0_0"].Text == Controls["1_0"].Text &&
-                     Controls["1_0"].Text == Controls["2_0"].Text && Controls["0_0"].Text != "")
-                isWinner = true;
-            else if (Controls["0_1"].Text == Controls["1_1"].Text &&
-                     Controls["1_1"].Text == Controls["2_1"].Text && Controls["0_1"].Text != "")
-                isWinner = true;
-            else if (Controls["0_2"].Text == Controls["1_2"].Text &&
-                     Controls["1_2"].Text == Controls["2_2"].Text && Controls["0_2"].Text != "")
-                isWinner = true;
-            else if (Controls["0_0"].Text == Controls["1_1"].Text &&
-                     Controls["1_1"].Text == Controls["2_2"].Text && Controls["0_0"].Text != "")
-                isWinner = true;
-            else if (Controls["0_2"].Text == Controls["1_1"].Text &&
-                     Controls["1_1"].Text == Controls["2_0"].Text && Controls["0_2"].Text != "")
-                isWinner = true;
-
+            isWinner = new Class1().Winner(this); 
             if (isWinner)
             {
-                MessageBox.Show(@$"{PlayerChar} won");
+                MessageBox.Show($@"{PlayerChar} won");
                 foreach (var btn in Controls.OfType<Button>().Cast<Control>().ToList())
                 {
                     var b = (Button) btn;

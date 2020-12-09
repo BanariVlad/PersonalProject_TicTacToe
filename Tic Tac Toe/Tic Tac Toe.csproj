@@ -33,6 +33,9 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="CheckWinner, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\CheckWinner\CheckWinner\bin\Debug\CheckWinner.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Xml.Linq" />

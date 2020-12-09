@@ -9,3 +9,6 @@ C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.exe
 C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.pdb
 C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.Form1.resources
 C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.Gameplay.resources
+C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\bin\Debug\CheckWinner.dll
+C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\bin\Debug\CheckWinner.pdb
+C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic Tac Toe.csproj.CopyComplete

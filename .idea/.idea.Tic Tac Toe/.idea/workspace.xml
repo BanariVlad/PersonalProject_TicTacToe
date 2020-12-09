@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52428a35-0a1c-4ff8-be61-91f8c37f7b00" name="Default Changelist" comment="Tic Tac Toe sockets">
+    <list default="true" id="52428a35-0a1c-4ff8-be61-91f8c37f7b00" name="Default Changelist" comment="Some fixes">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tic Tac Toe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tic Tac Toe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tic Tac Toe/Gameplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tic Tac Toe/Gameplay.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tic Tac Toe/bin/Debug/Tic_Tac_Toe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Tic Tac Toe/bin/Debug/Tic_Tac_Toe.exe" afterDir="false" />
@@ -39,7 +39,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa18356.20445/Tic Tac Toe Game/Tic Tac Toe Game/Game.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa1448.47676/Tic Tac Toe Game/Tic Tac Toe Game/Game.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -95,7 +95,7 @@
       <updated>1607274907649</updated>
       <workItem from="1607274918564" duration="10191000" />
       <workItem from="1607336391548" duration="215000" />
-      <workItem from="1607444958467" duration="27626000" />
+      <workItem from="1607444958467" duration="30159000" />
     </task>
     <task id="LOCAL-00001" summary="Tic Tac Toe sockets">
       <created>1607513062646</created>
@@ -104,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607513062646</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Some fixes">
+      <created>1607515150621</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607515150621</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +133,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Tic Tac Toe sockets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tic Tac Toe sockets" />
+    <MESSAGE value="Some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="689" y="418" width="394" height="204" key="Github.ShareDialog" timestamp="1607286780492">
@@ -217,14 +225,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607464155502" />
-    <state x="552" y="242" width="816" height="546" key="Rider.ProjectTemplateDialog.Size" timestamp="1607513308780">
+    <state x="552" y="242" width="816" height="546" key="Rider.ProjectTemplateDialog.Size" timestamp="1607516595386">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="242" width="816" height="546" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1607513308780" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607513064391">
+    <state x="552" y="242" width="816" height="546" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1607516595386" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607515152486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607513064391" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607515152486" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1607451369508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
