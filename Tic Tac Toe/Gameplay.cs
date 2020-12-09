@@ -16,7 +16,7 @@ namespace Tic_Tac_Toe
             messageReceiver.DoWork += MessageReceiver_DoWork;
             CheckForIllegalCrossThreadCalls = false;
 
-            if(isHost)
+            if (isHost)
             {
                 PlayerChar = "X";
                 OpponentChar = "0";
@@ -30,11 +30,11 @@ namespace Tic_Tac_Toe
                 OpponentChar = "X";
                 try
                 {
-                    client = new TcpClient(ip, 3000);
+                    client = new TcpClient(ip ?? string.Empty, 3000);
                     sock = client.Client;
                     messageReceiver.RunWorkerAsync();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                     Close();
@@ -42,7 +42,6 @@ namespace Tic_Tac_Toe
             }
         }
         
-        private bool turn = true;
         private int turnCount;
         private bool isWinner;
         private BackgroundWorker messageReceiver = new BackgroundWorker();
@@ -54,7 +53,6 @@ namespace Tic_Tac_Toe
 
         private void MessageReceiver_DoWork(object sender, DoWorkEventArgs e)
         {
-            
             DisableButtons();
             ReceiveMove();
             if (!isWinner)
@@ -84,20 +82,10 @@ namespace Tic_Tac_Toe
                 y += 103;
             }
         }
-        
+
         private void ShowTooltip(Button btn)
         {
-            if (btn.Enabled)
-            {
-                if (turn)
-                {
-                    btn.Text = PlayerChar;
-                }
-                else
-                {
-                    btn.Text = OpponentChar;
-                }
-            }
+            btn.Text = PlayerChar;
         }
 
         private void HideTooltip(Button btn)
@@ -147,13 +135,13 @@ namespace Tic_Tac_Toe
 
             if (isWinner)
             {
-                if (turn) MessageBox.Show($"{PlayerChar} won");
-                else MessageBox.Show($"{OpponentChar} won");
-                DisableButtons();
-            }
-            else if (turnCount == 9)
-            {
-                MessageBox.Show(@"Draw");
+                MessageBox.Show(@$"{PlayerChar} won");
+                foreach (var btn in Controls.OfType<Button>().Cast<Control>().ToList())
+                {
+                    var b = (Button) btn;
+                    b.Text = "";
+                    b.Enabled = true;
+                }
             }
         }
 
@@ -161,7 +149,7 @@ namespace Tic_Tac_Toe
         {
             foreach (var btn in Controls.OfType<Button>().Cast<Control>().ToList())
             {
-                Button b = (Button) btn;
+                var b = (Button) btn;
                 b.Enabled = false;
             }
         }
@@ -170,24 +158,24 @@ namespace Tic_Tac_Toe
         {
             foreach (var btn in Controls.OfType<Button>().Cast<Control>().ToList())
             {
-                Button b = (Button) btn;
+                var b = (Button) btn;
                 if (b.Text == "")
                 {
                     b.Enabled = true;
                 }
             }
         }
-        
+
         private void ReceiveMove()
         {
-            byte[] buffer = new byte[1024];
-            int ascii = sock.Receive(buffer);
-            char[] chars = new char[ascii];
-            System.Text.Decoder d = System.Text.Encoding.UTF8.GetDecoder();
-            int charLen = d.GetChars(buffer, 0, ascii, chars, 0);
+            var buffer = new byte[1024];
+            var ascii = sock.Receive(buffer);
+            var chars = new char[ascii];
+            var d = System.Text.Encoding.UTF8.GetDecoder();
+            var charLen = d.GetChars(buffer, 0, ascii, chars, 0);
             var name = new String(chars);
             Controls[name].Text = OpponentChar;
+            Winner();
         }
     }
-
 }
