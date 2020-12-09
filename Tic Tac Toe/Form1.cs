@@ -12,16 +12,27 @@ namespace Tic_Tac_Toe
 {
     public partial class Form1 : Form
     {
-        private Game Game = new Game();
         public Form1()
         {
             InitializeComponent();
-            Game.GenerateButtons(this);
         }
 
-        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Game.NewGame(this);
+            var newGame = new Gameplay(true);
+            Visible = false;
+            if (!newGame.IsDisposed)
+                newGame.ShowDialog();
+            Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var newGame = new Gameplay(false, textBox1.Text);
+            Visible = false;
+            if (!newGame.IsDisposed)
+                newGame.ShowDialog();
+            Visible = true;
         }
     }
 }

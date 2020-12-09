@@ -8,3 +8,4 @@ C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic Tac Toe.csproj
 C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.exe
 C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.pdb
 C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.Form1.resources
+C:\Users\ASUS\RiderProjects\Tic Tac Toe\Tic Tac Toe\obj\Debug\Tic_Tac_Toe.Gameplay.resources
